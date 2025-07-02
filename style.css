@@ -1,0 +1,66 @@
+.navbar {
+    background-color: rgb(42, 34, 90);
+}
+
+.btn {
+    background-color: white;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.form-select {
+    width: 200px;
+    gap: 0px;
+}
+
+
+.navbar {
+    background-color: rgb(42, 34, 90);
+}
+
+.btn {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #2a225a;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+#cardImage{
+    /* background-position: center; */
+    /* height: 200px; */
+    width: 100%;
+    object-fit: cover;
+
+}
+
+
+/* .myCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} */
+
+@media (max-width: 576px) {
+    .form-select {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
