@@ -13,7 +13,9 @@
 .navbar-brand {
     color: white;
 }
-
+.navbar-brand:hover{
+    color: white;
+}
 .form-select {
     width: 200px;
     gap: 0px;
@@ -44,9 +46,12 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
-
+    transition: transform 0.5s ease;
 }
-
+#cardImage:hover{
+    transition: transform 0.3s ease;
+    transform: translateY(-5px)
+}
 
 /* .myCard{
     display: flex;
