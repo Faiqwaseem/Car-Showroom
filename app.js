@@ -240,29 +240,30 @@ var cars = {
     }
 };
 
+function ShowAllCards() {
+    var company = document.getElementById("company");
+    var brand = document.getElementById("brand")
 
-var company = document.getElementById("company");
-var brand = document.getElementById("brand")
+    var allCards = document.getElementById("allCards")
 
-var allCards = document.getElementById("allCards")
+    company.innerHTML = `<option>Select company</option>`
 
-company.innerHTML = `<option>Select Brand</option>`
-for (var key in cars) {
-    company.innerHTML += `
+    for (var key in cars) {
+        company.innerHTML += `
     <option value="${key}">${key.toUpperCase()}</option>`
 
-    for (var key1 in cars[key]) {
-        // console.log(key1)
-        for (var key2 in cars[key][key1]) {
-            // console.log(cars[key][key1][key2]);
-            var carData = cars[key][key1][key2];
-            var colroDiv = "";
-            for(var i = 0; i < carData.colors.length; i++){
-                
-                colroDiv += `<div class="m-2" style= "border: 1px solid; width: 20px; height: 20px; border-radius: 10px; background-color:${carData.colors[i]};"></div>`
-            }
-console.log(colroDiv);
-            allCards.innerHTML += `
+        for (var key1 in cars[key]) {
+            // console.log(key1)
+            for (var key2 in cars[key][key1]) {
+                // console.log(cars[key][key1][key2]);
+                var carData = cars[key][key1][key2];
+                var colroDiv = "";
+                for (var i = 0; i < carData.colors.length; i++) {
+
+                    colroDiv += `<div class="m-2" style= "border: 1px solid; width: 20px; height: 20px; border-radius: 10px; background-color:${carData.colors[i]};"></div>`
+                }
+                // console.log(colroDiv);
+                allCards.innerHTML += `
                     <div class="col-12 col-sm-4 col-md-6 col-lg-4 mb-4">
   <div class="card myCard">
     <img id="cardImage" src="${carData.image}" class="card-img-top" alt="Car Image">
@@ -277,9 +278,11 @@ console.log(colroDiv);
   </div>
 </div>
 `
+            }
         }
     }
 }
+ShowAllCards()
 
 function onCompanyChange() {
     brand.innerHTML = "";
@@ -294,11 +297,11 @@ function onCompanyChange() {
 
 function filterCars() {
     var carData = cars[company.value][brand.value].type;
-     var colroDiv = "";
-            for(var i = 0; i < carData.colors.length; i++){
-                
-                colroDiv += `<div class="m-2" style= "border: 1px solid black; width: 20px; height: 20px; border-radius: 10px; background-color:${carData.colors[i]};"></div>`
-            }
+    var colroDiv = "";
+    for (var i = 0; i < carData.colors.length; i++) {
+
+        colroDiv += `<div class="m-2" style= "border: 1px solid black; width: 20px; height: 20px; border-radius: 10px; background-color:${carData.colors[i]};"></div>`
+    }
     allCards.innerHTML = `
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-4">
   <div class="card myCard h-100">
@@ -314,4 +317,11 @@ function filterCars() {
   </div>
 </div>
 `
+}
+
+function ClearFiltter() {
+    allCards.innerHTML = "";
+    document.getElementById("company").value = "";
+    document.getElementById("brand").innerHTML = `<option value="">Select Brand</option>`;
+    ShowAllCards();
 }
